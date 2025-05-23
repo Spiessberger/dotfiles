@@ -28,6 +28,9 @@ plug "sindresorhus/pure"
 autoload -Uz compinit
 compinit
 
+# aliases
+alias repoall="repo forall -c git"
+
 # shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
