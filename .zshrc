@@ -11,6 +11,12 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+# keybinds
+bindkey "^[[1;5C" forward-word      # ctrl + arrow right
+bindkey "^[[1;5D" backward-word     # ctrl + arrow left
+bindkey "^[[1~"   beginning-of-line # pos1
+bindkey "^[[4~"   end-of-line       # end
+
 # case insesnitive completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
