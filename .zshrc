@@ -11,6 +11,8 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
+export EDITOR=vim
+
 # keybinds
 bindkey "^[[1;5C" forward-word      # ctrl + arrow right
 bindkey "^[[1;5D" backward-word     # ctrl + arrow left
