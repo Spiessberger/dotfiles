@@ -1,0 +1,25 @@
+# The work tree is $HOME, so ignore everything and allowlist what is tracked.
+# This keeps `config status` clean and `config add <TAB>` fast.
+#
+# A path can only be re-included if none of its parent directories are excluded,
+# hence the un-ignore / re-ignore pairs for each directory level.
+
+/*
+
+!/.gitignore
+!/.zshrc
+!/.gitconfig
+
+!/.config/
+/.config/*
+!/.config/kitty/
+!/.config/tmux/
+/.config/tmux/plugins/
+
+!/.github/
+
+!/.local/
+/.local/*
+!/.local/bin/
+/.local/bin/*
+!/.local/bin/dotfiles-bootstrap

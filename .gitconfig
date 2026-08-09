@@ -1,0 +1,15 @@
+[user]
+	name = Daniel Spiessberger
+	email = daniel.spiessberger@gmail.com
+
+[init]
+	defaultBranch = main
+
+[push]
+	autoSetupRemote = true
+
+[pull]
+	rebase = true
+
+[core]
+	editor = vim

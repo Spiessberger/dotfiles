@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Post-checkout setup for the dotfiles bare repo. Idempotent, safe to re-run.
+# Installs no packages and needs no sudo -- see .github/README.md for those steps.
+set -euo pipefail
+
+config() {
+	git --git-dir="$HOME/.dotfiles" --work-tree="$HOME" "$@"
+}
+
+if [ ! -d "$HOME/.dotfiles" ]; then
+	echo "error: $HOME/.dotfiles not found -- clone the bare repo first (see README)" >&2
+	exit 1
+fi
+
+echo "==> hiding untracked files in \`config status\`"
+config config status.showUntrackedFiles no
+
+echo "==> creating zsh cache dir"
+mkdir -p "${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+
+tpm="$HOME/.config/tmux/plugins/tpm"
+if [ -d "$tpm" ]; then
+	echo "==> tpm already installed"
+else
+	echo "==> installing tpm"
+	git clone --quiet https://github.com/tmux-plugins/tpm "$tpm"
+	"$tpm/bin/install_plugins"
+fi
+
+echo
+echo "done. remaining manual steps:"
+echo "  chsh -s /usr/bin/zsh   # then log out and back in"
