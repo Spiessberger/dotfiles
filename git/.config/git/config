@@ -1,0 +1,22 @@
+[init]
+  defaultBranch = "main"
+
+[core]
+  editor = "nvim"
+
+[push]
+	autoSetupRemote = true
+	followTags = true # pushes annotated tags reachable from pushed commits
+
+[rebase]
+	autoStash = true
+	autoSquash = true # applies fixup!/squash! commits automatically
+
+[branch]
+	sort = -committerdate
+
+[tag]
+	sort = version:refname # v1.10 sorts after v1.9
+
+[status]
+	showUntrackedFiles = all # list files inside untracked directories
