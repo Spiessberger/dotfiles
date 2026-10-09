@@ -13,15 +13,24 @@
     "command": "bash ~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "rust-analyzer-lsp@claude-plugins-official": true
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "ponytail@ponytail": true
   },
-  "promptSuggestionEnabled": false,
-  "theme": "dark",
-  "editorMode": "normal",
-  "switchModelsOnFlag": false,
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "high"
     }
-  }
+  },
+  "promptSuggestionEnabled": false,
+  "theme": "dark",
+  "editorMode": "normal",
+  "switchModelsOnFlag": false
 }
