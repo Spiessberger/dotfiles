@@ -1,0 +1,23 @@
+binds {
+  Mod+T hotkey-overlay-title="Open Terminal" { spawn "kitty" "-o" "hide_window_decorations=yes"; }
+  Mod+S hotkey-overlay-title="Screenshot: Region" { spawn "dms" "screenshot"; }
+  Mod+Ctrl+S hotkey-overlay-title="Screenshot: Full Screen" { spawn "dms" "screenshot" "full"; }
+  Mod+Alt+S hotkey-overlay-title="Screenshot: Window" { spawn "dms" "screenshot" "window"; }
+}
+
+// Override config.kdl: tile regular Nautilus windows, float only its portal file dialogs.
+// ponytail: dialogs are detected by title (set by the requesting app); add prefixes here if one tiles.
+window-rule {
+  match app-id=r#"^org\.gnome\.Nautilus$"#
+  open-floating false
+}
+window-rule {
+  match app-id=r#"^org\.gnome\.Nautilus$"# title=r#"^(Open|Save|Select|Choose|Export|Import|Upload|Attach|File Upload)\b"#
+  open-floating true
+}
+
+// open cs2 on 360hz monitor
+window-rule {
+  match app-id="gamescope" title="Counter-Strike 2"
+  open-on-output "ASUSTek COMPUTER INC XG27ACDNG T7LMAS026056"
+}
